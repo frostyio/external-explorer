@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@300;400;700&display=swap');
+
+:root {
+	--background-100: #101010;
+	--background-200: #1E1E1E;
+	--background-300: #232323;
+	--background-400: #262626;
+	--background-500: #2B2B2B;
+	--background-600: #2E2E2E;
+	--background-700: #333333;
+	--background-800: #353535;
+	--background-900: #343434;
+	--background-1000: #383838;
+
+	--foreground-100: #ffffff;
+	--foreground-800: #838383;
+
+	--radius: 3px;
+}
+
+body {
+	background-color: var(--background-100);
+	color: var(--foreground-100);
+	font-family: 'Oxygen', sans-serif;
+	/* font-family: 'Oxygen Mono', monospace; */
+}
+
+.filter {
+	border-radius: var(--radius) var(--radius) 0 0;
+	background-color: var(--background-400);
+	padding: 1%;
+	height: 24px;
+
+}
+
+/* input textbox */
+
+input[type=text] {
+	background: none;
+	border: none;
+	color: var(--foreground-100);
+	margin-top: 5px;
+	font-size: 100%;
+}
+
+input[type=text]::placeholder {
+	opacity: 1;
+	color: var(--foreground-800);
+}
+
+input[type=text]:focus {
+	outline: none;
+}
+
+/* */
+
+.list {
+	overflow-y: auto;
+}
+
+.buttonIcon {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.classIcon {
+	object-fit: contain;
+	margin-left: 6px;
+	margin-right: 6px;
+	height: 28px;
+}
+
+img {
+	pointer-events: none;
+}
+
+.instance {
+	padding: none;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+
+.individualInstance:hover {
+	background-color: var(--background-200);
+}
+
+span {
+	display: table-cell;
+	vertical-align: middle;
+	align-items: center;
+	padding-top: 4px;
+}
+
+.category {
+	background-color: var(--background-200);
+}
+
+.category h3 {
+	margin: 0;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.property {
+	border-bottom: 1px solid var(--background-200);
+	padding-top: 2px;
+}
+
+.property-base span {
+	padding-left: 5px;
+}
+
+.value {
+	border-left: 1px solid var(--background-200);
+	padding-left: 4px;
+	padding-bottom: 5px;
+}
