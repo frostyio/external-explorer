@@ -1,7 +1,19 @@
-# Tauri + Solid + Typescript
+# A Tree-Based Explorer that Operates via Websockets
+### Built sort-of for Roblox
+Not finished, likely won't be
 
-This template should help get you started developing with Tauri, Solid and Typescript in Vite.
+<img src="images/img1.png" height="600"/> <img src="images/img2.png" height="600"/> <img src="images/img3.png" height="600"/>
 
-## Recommended IDE Setup
+## Build
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+Assuming you have proper dependencies installed,
+
+``npm run tauri dev``
+
+## Test
+
+A test websocket script is located within ``tests/websocket.lua``
+
+You can run it with [Lune](https://github.com/lune-org/lune)
+
+``lune tests/websocket.lua``
