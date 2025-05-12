@@ -94,6 +94,7 @@ fn main() {
 			let handle = app.handle();
 			let state = app.state::<Arc<AppState>>();
 			let app_state = Arc::clone(state.inner());
+
 			tauri::async_runtime::spawn(async move {
 				loop {
 					match receiver.try_recv() {

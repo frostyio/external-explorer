@@ -1,6 +1,6 @@
-local client = require("http.websocket")
-local json = require("tests/json")
-local pprint = require("tests/pprint")
+local net = require("@lune/net")
+local task = require("@lune/task")
+-- local pprint = require("tests/pprint")
 
 local idx = 1
 local function generateGuid()
@@ -16,7 +16,6 @@ local function new(data)
 	return guid
 end
 
-local n = "0000"
 for i = 1, 10 do
 	new({ ClassName = "Part", Name = "Part" .. i, Parent = ("%04x"):format(idx), Color = "Red" })
 end
@@ -37,26 +36,23 @@ end
 
 --
 
-local connection = client.new_from_uri("ws://127.0.0.1:8000/")
-assert(connection:connect())
+local connection = net.socket("ws://127.0.0.1:8000/")
 
 local function sendInstances()
 	local frame = getInstanceFrame()
-	local encoded = json.encode(frame)
-	pprint(encoded)
-
-	assert(connection:send(encoded))
+	local encoded = net.jsonEncode(frame)
+	print(encoded)
+	connection.send(encoded)
 end
 
-local start = os.clock()
-while os.clock() - start < 1 do
+task.wait(5)
+
+local success, message = pcall(sendInstances)
+if not success then
+	print(message)
 end
 
-sendInstances()
+task.wait(5)
 
-local start = os.clock()
-while os.clock() - start < 10 do
-end
-
-connection:close()
+connection.close()
 print("closed")
